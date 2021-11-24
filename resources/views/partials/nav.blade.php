@@ -13,6 +13,22 @@
                 <li class="nav-item">
                     <a href="{{url('/')}}" class="nav-link">Welcome Page</a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('dashboard.index')}}" class="nav-link">DASHBOARD</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('data.siswa')}}" class="nav-link">DATA SISWA</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('manage-kegiatan')}}" class="nav-link">MANAGE KEGIATAN</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('verifikasi-pendaftaran')}}" class="nav-link">VERIFIKASI PENDAFTARAN</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">LAPORAN</a>
+                </li>
+                
             </ul>
 
             <!-- Right Side Of Navbar -->
