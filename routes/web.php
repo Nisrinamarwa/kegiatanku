@@ -68,3 +68,7 @@ Route::group(['prefix' => 'pendaftaran'], function(){
     Route::get('pending', 'Pendaftaran\PendingController@index')->name('pendaftaran.pending');
     Route::get('verified', 'Pendaftaran\VerifiedController@index')->name('pendaftaran.verified');
 });
+
+Route::group(['prefix' => 'updated'], function(){
+    Route::patch('data/siswa/{user}','DataSiswaController@updated')->name('updated.data.siswa');
+});

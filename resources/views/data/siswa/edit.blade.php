@@ -15,9 +15,9 @@
                             Silahkan isi dibawah ini dengan benar.
                      </div>
 
-                     <form action="" method="post">
+                     <form action="{{route('updated.data.siswa',$user->id)}}" method="post">
                          @csrf
-
+                         @method('PATCH')
                          <div class="row">
                              <div class="col-md-3">
                                  <div class="form-group">
@@ -28,7 +28,7 @@
                              <div class="col-md-3">
                                  <div class="form-group">
                                      <label for="">Nama</label>
-                                     <input type="text" name="nama" class="form-control" id="" value="{{$user->name}}">
+                                     <input type="text" class="form-control" id="" value="{{$user->name}}">
                                  </div>
                              </div>
                                  <div class="col-md-3">
@@ -86,7 +86,7 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="">Status</label>
-                                        <select name="" id="" class="form-control">
+                                        <select name="status" id="" class="form-control">
                                             <option value="">Silahkan Pilih Status</option>
                                             <option value="Aktif">Aktif</option>
                                             <option value="Non-Aktif">Non-Aktif</option>

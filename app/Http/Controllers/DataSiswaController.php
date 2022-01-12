@@ -72,4 +72,13 @@ class DataSiswaController extends Controller
         
         return redirect()->back();
     }
+
+    public function updated(Request $request,$id)
+    {
+        $student = Student::where('user_id','=', $id)->firstOrFail();
+
+        $student->update($request->all());
+        
+        return redirect()->back();
+    }
 }
