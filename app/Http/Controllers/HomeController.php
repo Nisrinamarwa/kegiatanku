@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use App\Activity;
+use App\Register;
+use App\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -11,10 +16,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Show the application dashboard.
@@ -23,6 +28,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $data = [
+            'students'      => User::whereHas('roles', function ($q) {
+                                    $q->where('roles.name', '=', 'student');
+                                })->count(),
+            'activitys'     => Activity::count(),
+            'registers'     => Register::where('status','peserta')->count(),
+            'pending'       => Register::where('status','pending')->count(),
+            'terverivikasi' => Register::where('status','terverivikasi')->count(),
+            'delayed'       => Register::where(['user_id' => Auth::user()->id, 'status' => 'pending'])->count(),
+            'verified'      => Register::where(['user_id' => Auth::user()->id, 'status' => 'terverivikasi'])->count(),
+            'participant'   => Register::where(['user_id' => Auth::user()->id, 'status' => 'peserta'])->count(),
+        ];
+
+        return view('home', $data);
     }
 }

@@ -25,7 +25,7 @@ Route::group(['prefix' => 'kegiatan'], function(){
     Route::post('/store/{user}','KegiatanController@store')->name('kegiatan.store');
 });
 Route::get('/pendaftaran', 'DaftarController@index')->name('daftar.index');
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard.index');
+Route::get('/dashboard', 'HomeController@index')->name('dashboard.index');
 
 Route::get('/laporan', 'LaporanController@index')->name('laporan.index');
 
@@ -35,10 +35,11 @@ Route::group(['prefix' => 'data'], function() {
 
 Route::group(['prefix' => 'tambah-data'], function() {
     Route::get('/siswa', 'DataSiswaController@create')->name('tambah-data.siswa');
+    Route::post('/store', 'DataSiswaController@store')->name('tambah-data.store');
 });
 
 Route::group(['prefix' => 'edit-data'], function() {
-    route::get('siswa', 'DataSiswaController@edit')->name('edit-data.siswa');
+    route::get('siswa/{user}', 'DataSiswaController@edit')->name('edit-data.siswa');
 });
 
 Route::group(['prefix'  => 'manage-kegiatan'], function(){
@@ -61,4 +62,9 @@ Route::group(['prefix' => 'verifikasi-pendaftaran'], function(){
 Route::group(['prefix' => 'user'], function(){
     Route::get('ambil-form/{register}', 'PaymentController@create')->name('user.ambil-form');
     Route::post('verifikasi-pembayaran/{register}', 'PaymentController@store')->name('user-verifikasi-pembayaran');
+});
+
+Route::group(['prefix' => 'pendaftaran'], function(){
+    Route::get('pending', 'Pendaftaran\PendingController@index')->name('pendaftaran.pending');
+    Route::get('verified', 'Pendaftaran\VerifiedController@index')->name('pendaftaran.verified');
 });
