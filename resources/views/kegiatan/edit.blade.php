@@ -15,20 +15,20 @@
                             Silahkan isi dibawah ini dengan benar.
                      </div>
 
-                     <form action="" method="post">
+                     <form action="{{route('updated.data.kegiatan', $kegiatan->id)}}" method="post">
                          @csrf
-
+                         @method('PATCH')
                          <div class="row">
                              <div class="col-md-3">
                                  <div class="form-group">
                                      <label for="">Kode Kegiatan</label>
-                                     <input type="text" name="kode_kegiatan" class="form-control" id="" value="{{$kegiatan->kode_activity}}">
+                                     <input type="text" name="kode_activity" class="form-control" id="" value="{{$kegiatan->kode_activity}}">
                                  </div>
                              </div>
                              <div class="col-md-3">
                                  <div class="form-group">
                                      <label for="">Nama Kegiatan</label>
-                                     <input type="text" name="nama_kegiatan" class="form-control" id="" value="{{$kegiatan->nama_activity}}">
+                                     <input type="text" name="nama_activity" class="form-control" id="" value="{{$kegiatan->nama_activity}}">
                                  </div>
                              </div>
                                 <div class="col-md-3">
@@ -56,13 +56,13 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="">Keterangan</label>
-                                        <input type="text" name="keterangan" class="form-control" id="" value="{{$kegiatan->desc}}">
+                                        <input type="text" name="desc" class="form-control" id="" value="{{$kegiatan->desc}}">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="">Tanggal Mulai</label>
-                                        <input type="date" name="tgl_mulai" class="form-control" id="" value="{{$kegiatan->tgl_awal}}">
+                                        <input type="date" name="tgl_awal" class="form-control" id="" value="{{$kegiatan->tgl_awal}}">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
