@@ -47,7 +47,6 @@ Route::group(['prefix'  => 'manage-kegiatan'], function(){
     route::get('/add-form','ManagekegiatanController@create')->name('manage-kegiatan.add-form');    
     route::get('/add-form/edit-kegiatan/{id}','ManagekegiatanController@edit')->name('manage-kegiatan.add-form.edit-kegiatan');
     route::post('/post','ManagekegiatanController@store')->name('manage-kegiatan.store');
-    route::delete('/delete/{id}','ManagekegiatanController@destroy')->name('manage-kegiatan.delete');
     route::patch('/update/{activity}','ManagekegiatanController@update')->name('updated.data.kegiatan');
 });
 
@@ -75,4 +74,5 @@ Route::group(['prefix' => 'updated'], function(){
 
 Route::group(['prefix' => 'destroy'], function(){
     Route::delete('data/siswa/{user}','DataSiswaController@destroy')->name('destroy.data.siswa');
+    Route::delete('data/activity/{activity}','ManagekegiatanController@destroy')->name('destroy.data.activity');
 });
