@@ -76,3 +76,7 @@ Route::group(['prefix' => 'destroy'], function(){
     Route::delete('data/siswa/{user}','DataSiswaController@destroy')->name('destroy.data.siswa');
     Route::delete('data/activity/{activity}','ManagekegiatanController@destroy')->name('destroy.data.activity');
 });
+
+Route::group(['prefix' => 'cetak'], function(){
+    Route::get('activity', 'Report\ActivityController@index')->name('cetak.activity');
+});
