@@ -79,4 +79,5 @@ Route::group(['prefix' => 'destroy'], function(){
 
 Route::group(['prefix' => 'cetak'], function(){
     Route::get('activity', 'Report\ActivityController@index')->name('cetak.activity');
+    Route::get('data-activity', 'Report\ActivityController@edit')->name('cetak.semua-data.activity');
 });

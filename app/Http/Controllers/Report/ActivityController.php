@@ -18,4 +18,13 @@ class ActivityController extends Controller
 
         return $pdf->stream('laporan_activity.pdf');
     }
+    
+    public function edit(Request $request)
+    {
+
+        $kegiatans = Activity::all();
+        $pdf = PDF::loadView('all.activity', compact('kegiatans'))->setPaper('a4','landscape');
+
+        return $pdf->stream('laporan_activity.pdf');
+    }
 }
