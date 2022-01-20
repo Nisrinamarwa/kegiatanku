@@ -11,13 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+
 
 Auth::routes(); 
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'WelcomeController@index')->name('/');
 
 Route::group(['prefix' => 'kegiatan'], function(){
     Route::get('/tampilkan', 'KegiatanController@show')->name('kegiatan.tampilkan');
