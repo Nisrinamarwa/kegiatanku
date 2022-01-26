@@ -31,7 +31,7 @@
                 @endrole
                 @role('student')
                 <li class="nav-item">
-                    <a href="{{route('kegiatan.tampilkan')}}" class="nav-link">Cek Kegiatan</a>
+                    <a href="{{route('/')}}" class="nav-link">Cek Kegiatan</a>
                 </li>
                 @endrole
             </ul>

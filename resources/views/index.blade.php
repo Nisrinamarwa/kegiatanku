@@ -8,10 +8,15 @@
         <div class="col-md-4">
             <div class="card border-0 shadow-sm">
                 <div class="card-body">
-                    <h6>{{$kegiatan->nama_activity}}</h6>
+                    <h3>{{$kegiatan->nama_activity}}</h3>
                     <p class="text-muted">
-                        {{$kegiatan->status}}
+                        {{str_limit(strip_tags($kegiatan->desc), 50)}}
                     </p>
+                    <div>
+                        @if (strlen(strip_tags($kegiatan->desc)) > 50)
+                        <a href="" class="btn btn-outline-info btn-sm">Read More</a>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
@@ -26,18 +31,15 @@
                         <div class="d-flex">
                         <img src="{{url('storage/'. $activity->image)}}" alt="" width="100px" height="100px" class="rounded">
                             <div class="ml-3">
-                                <h3>{{$activity->nama_activity}}</h3>
-                                <p>{{$activity->desc}}</p>
+                                <h3 class="text-danger">{{$activity->nama_activity}}</h3>
+                                <p class="text-muted">{{$activity->desc}}</p>
                                 <div class="d-flex align-items-center mr-3">
-                                <h6 class="mr-3">{{$activity->created_at->diffForHumans()}}</h6>
-                                <div>
-                                    <button type="submit" class="btn btn-sm btn-outline-info">{{$activity->status}}</button>
+                                <small class="text-info">{{$activity->created_at->diffForHumans()}}</small>
                                 </div>
-                            </div>
                             </div>
                         </div>
                         <div>
-                            <a href="" class="btn btn-info">daftar</a>
+                            <a href="{{route('kegiatan.create', $activity->id)}}" class="btn btn-outline-info">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -45,6 +47,7 @@
         </div>
         @endforeach
     </div>
+    <a href="{{route('kegiatan.tampilkan')}}">Cek Kegiatan</a>
 </div>
 
 @endsection

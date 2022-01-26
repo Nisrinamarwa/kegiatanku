@@ -1,37 +1,32 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item active" aria-current="page">Tambah Data Siswa</li> 
-               </ol>
-             </nav>
-
-             <div class="card">
-                 <div class="card-body">
-                     <div class="alert alert-primary" role="alert">
-                         <h3>Perhatian !!!</h3>
-                            Silahkan isi dibawah ini dengan benar.
-                     </div>
-
+<div class="container " >
+    <div class="row justify-content-center" style="margin-top: -100px">
+        <div class="col-md-8">
+            <div class="card border-0">
+                <div class="card-body">
+                    <div class="alert alert-primary" role="alert">
+                        <h3>Perhatian !!!</h3>
+                        Silahkan isi data dibawah ini dengan benar.
+                    </div>
                      <form action="{{route('tambah-data.store')}}" method="post">
                          @csrf
 
                          <div class="row">
-                             <div class="col-md-3">
+                             <div class="col-md-6">
                                  <div class="form-group">
                                      <label for="">NISN</label>
-                                     <input type="text" name="nisn" class="form-control" id="" placeholder="Silahkan isi NISN siswa">
+                                     <input type="text" name="nisn" class="form-control" id="" value="NISN">
                                  </div>
                              </div>
-                             <div class="col-md-3">
+                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Nama</label>
-                                    <input type="text" name="name" class="form-control" id="" placeholder="Silahkan isi Nama siswa">
+                                    <input type="text" name="name" class="form-control" id="" value="User Name">
                                 </div>
                             </div>
-                                <div class="col-md-3">
+                                <div class="col-md-6">
                                    <div class="form-group">
                                        <label for="">Jenis Kelamin</label>
                                        <select name="gender" id="" class="form-control">
@@ -41,19 +36,19 @@
                                        </select>
                                    </div>
                                 </div> 
-                             <div class="col-md-3">
-                                 <div class="form-group">
-                                     <label for="">Agama</label>
-                                     <select name="religion" id="" class="form-control">
-                                         <option value="">Silahkan Pilih Agama</option>
-                                         <option value="Islam">Islam</option>
-                                         <option value="Kristen">Kristen</option>
-                                         <option value="Budha">Budha</option>
-                                         <option value="Protestan">Protestan</option>
-                                    </select>
-                                 </div>
-                             </div>
-                                <div class="col-md-3">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Agama</label>
+                                        <select name="religion" id="" class="form-control">
+                                            <option value="">Silahkan Pilih Agama</option>
+                                            <option value="Islam">Islam</option>
+                                            <option value="Kristen">Kristen</option>
+                                            <option value="Budha">Budha</option>
+                                            <option value="Protestan">Protestan</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Jurusan</label>
                                         <select name="major" id="" class="form-control">
@@ -66,7 +61,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Kelas</label>
                                         <select name="class" id="" class="form-control">
@@ -77,18 +72,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="">Pilih Akses</label>
-                                        <select name="roles" id="" class="form-control">
-                                            <option value="">Pilih Akses</option>
-                                            @foreach ($roles as $role)
-                                            <option value="{{$role->id}}">{{$role->name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Status</label>
                                         <select name="status" id="" class="form-control">
@@ -98,30 +82,43 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="">Phone</label>
-                                        <input type="number" name="phone" class="form-control" id="" placeholder="Silahkan isi Nomer telpon siswa">
+                                        <label for="">Akses</label>
+                                        <select name="roles" class="form-control" id="">
+                                            <option value="">Silahkan Pilih Akses</option>
+                                            @foreach ($roles as $role)
+                                            <option value="{{$role->id}}">{{$role->name}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Phone</label>
+                                        <input type="number" name="phone" class="form-control" id="" value="+62">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Password</label>
-                                    <input type="password" name="password" class="form-control" id="" placeholder="Silahkan isi Nama siswa">
+                                    <input type="password" name="password" class="form-control" id="" value0="*********">
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Email</label>
-                                    <input type="text" name="email" class="form-control" id="" placeholder="Silahkan isi Nama siswa">
+                                    <input type="text" name="email" class="form-control" id="" value="E-mail">
                                 </div>
                             </div>
                                 <div class="col-md-12">
                                     <button type="submit" class="btn btn-info">Simpan</button>
                                 </div>
-                         </div>
-                     </form>
-                 </div>
-             </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 @endsection
