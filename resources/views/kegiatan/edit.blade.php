@@ -12,7 +12,7 @@
                         Silahkan isi data dibawah ini dengan benar.
                     </div>
 
-                    <form action="{{route('updated.data.activity',$activity->id)}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('updated.data.kegiatan',$kegiatan->id)}}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
                         <div class="row">
@@ -20,7 +20,7 @@
                                 <div class="form-group">
                                     <label for="">Nama Kegiatan</label>
                                     <input type="text" name="nama_activity" class="form-control"
-                                        value="{{$activity->nama_activity}}" id="">
+                                        value="{{$kegiatan->nama_activity}}" id="">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -32,7 +32,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">IDR</label>
-                                    <input type="text" name="idr" class="form-control" value="{{$activity->idr}}" id="">
+                                    <input type="text" name="idr" class="form-control" value="{{$kegiatan->idr}}" id="">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -50,27 +50,27 @@
                                 <div class="form-group">
                                     <label for="">Keterangan</label>
                                     <textarea name="desc" id="" class="form-control">
-                                            {{$activity->desc}}
+                                            {{$kegiatan->desc}}
                                         </textarea>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Tanggal Mulai</label>
-                                    <input type="date" name="tgl_awal" class="form-control" value="{{$activity->tgl_awal}}" id="">
+                                    <input type="date" name="tgl_awal" class="form-control" value="{{$kegiatan->tgl_awal}}" id="">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Tanggal Selesai</label>
-                                    <input type="date" name="tgl_selesai" class="form-control" value="{{$activity->tgl_selesai}}"
+                                    <input type="date" name="tgl_selesai" class="form-control" value="{{$kegiatan->tgl_selesai}}"
                                         id="">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Jumlah Peserta</label>
-                                    <input type="number" name="peserta" class="form-control" value="{{$activity->peserta}}" id="">
+                                    <input type="number" name="jumlah_peserta" class="form-control" value="{{$kegiatan->peserta}}" id="">
                                 </div>
                             </div>
                             <div class="col-md-12">

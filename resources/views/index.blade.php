@@ -24,7 +24,7 @@
     </div>
 <div class="row py-4">
     @foreach ($activitys as $activity)
-        <div class="col-md-12 mb-3">
+        <div class="col-md-12">
             <div class="card-border-0 shadow">
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
@@ -39,7 +39,7 @@
                             </div>
                         </div>
                         <div>
-                            <a href="{{route('kegiatan.create', $activity->id)}}" class="btn btn-outline-info">Read More</a>
+                            <a href="{{route('kegiatan.create', $activity->id)}}" class="btn btn-info">Read More</a>
                         </div>
                     </div>
                 </div>
