@@ -18,6 +18,7 @@
                     <a href="{{route('dashboard.index')}}" class="nav-link text-white">DASHBOARD</a>
                 </li>
                 @endauth
+
                 @role('admin')
                 <li class="nav-item">
                     <a href="{{route('data.siswa')}}" class="nav-link text-white">DATA SISWA</a>
@@ -26,14 +27,16 @@
                     <a href="{{route('manage-kegiatan')}}" class="nav-link text-white">MANAGE KEGIATAN</a>
                 </li>
                 @endrole
+
                 @role('bendahara')
                 <li class="nav-item">
                     <a href="{{route('verifikasi-pendaftaran')}}" class="nav-link">VERIFIKASI PENDAFTARAN</a>
                 </li>
                 @endrole
+                
                 @role('student')
-                <li class="nav-item">
-                    <a href="{{route('/')}}" class="nav-link">Cek Kegiatan</a>
+                <li class="nav-item hover">
+                    <a href="{{route('activity')}}" class="nav-link text-white">KEGIATAN KU</a>
                 </li>
                 @endrole
             </ul>

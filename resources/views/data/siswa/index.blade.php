@@ -60,7 +60,7 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <a href="{{route('edit-data.siswa', $student->id)}}" class="btn btn-secondary btn-sm">Edit</a>
-                                                <button type="submit" class="btn btn-secondary btn-sm">Hapus</button>
+                                                <button type="submit" class="btn btn-secondary btn-sm">Delete</button>
                                             </form>
                                         </td>
                                     </tr>

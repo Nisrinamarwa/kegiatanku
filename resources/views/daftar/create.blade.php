@@ -66,6 +66,7 @@
                                     <input type="number" name="qty" class="form-control">
                                 </div>
                             </div>
+                            
                             <input type="hidden" name="status" class="form-control" value="pending">
                             <div class="ml-3">
                                 <button type="submit" class="btn btn-primary"> Beli Tiket</button>

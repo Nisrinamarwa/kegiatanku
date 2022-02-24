@@ -25,8 +25,6 @@ class PaymentController extends Controller
         $this->storeImage($verifikasi);
 
         if ($verifikasi->save()) {
-            $get = Register::findOrFail($verifikasi->register_id);
-
             $activity = Activity::findOrFail($get->activity_id);
 
             $hitung = $activity->jumlah_peserta - $get->qty;

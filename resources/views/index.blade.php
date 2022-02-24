@@ -14,7 +14,7 @@
                     </p>
                     <div>
                         @if (strlen(strip_tags($kegiatan->desc)) > 50)
-                        <a href="" class="btn btn-outline-info btn-sm">Read More</a>
+                        <a href="" class=" desc btn btn-outline-info btn-sm">Read More</a>
                         @endif
                     </div>
                 </div>

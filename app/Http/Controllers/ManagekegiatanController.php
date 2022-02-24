@@ -47,7 +47,8 @@ class ManagekegiatanController extends Controller
             'tgl_awal' => 'required',
             'tgl_selesai' => 'required',
             'image'       => 'required|mimes:jpeg,jpg,png|max:5000',
-        ]), function(){
+        ]), 
+        function(){
             if(request()->hasFile('image')){
                 request()->validate([
                     'image' => 'required|mimes:jpeg,jpg,png|max:5000',
@@ -56,6 +57,7 @@ class ManagekegiatanController extends Controller
             }
         });
     }
+    
     private function storeImage($moment){
         if (request()->has('image')){
             $moment->update([
@@ -66,6 +68,16 @@ class ManagekegiatanController extends Controller
             $image->save();
         }
     }
+
+    public function update(Request $request, Activity $activity)
+    {
+
+        $activity->update($request->all());
+        $this->storeImage($activity);
+
+        return redirect()->back();
+    }
+
     public function destroy(Request $request, $id)
     {
        $activity =  Activity::findOrFail($id);
@@ -75,14 +87,6 @@ class ManagekegiatanController extends Controller
        if (\File::exists(public_path('storage/' . $activity->image))) {
            \File::delete(public_path('storage/' . $activity->image));
        }
-
-        return redirect()->back();
-    }
-    public function update(Request $request, Activity $activity)
-    {
-
-        $activity->update($request->all());
-        $this->storeImage($activity);
 
         return redirect()->back();
     }

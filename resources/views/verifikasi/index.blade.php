@@ -47,19 +47,24 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($verifikasiPembayarans as $pembayaran)
-                                    <tr>
-                                        <td>{{$pembayaran->activity->kode_activity}}</td>
-                                        <td>Nis Belum</td>
-                                        <td>{{$pembayaran->user->name}}</td>
-                                        <td>{{$pembayaran->created_at->diffForHumans()}}</td>
-                                        <td>
-                                            <span class="badge bg-secondary text-white">
-                                                {{$pembayaran->status}}
-                                            </span>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                @forelse ($verifikasiPembayarans as $pembayaran)
+                                <tr>
+                                    <td>{{$pembayaran->activity->kode_activity}}</td>
+                                    <td>NISN Belum terisi</td>
+                                    <td>{{$pembayaran->created_at->diffForHumans()}}</td>
+                                    <td>{{$pembayaran->user->name}}</td>
+                                    <td>
+                                        <span class="badge bg-secondary text-white">
+                                            {{$pembayaran->status}}</td>
+                                        </span>
+                                </tr>  
+                                @empty 
+                                <tr>
+                                    <td>
+                                        <td colspan="8" class="">Data Kosong </td>
+                                    </td>
+                                </tr>
+                                @endforelse
                             </tbody>
                         </table>
                         {{$verifikasiPembayarans->links()}}
